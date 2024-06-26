@@ -5,9 +5,9 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
   const employeesArray = [];
-  let addAnotherEmployee = true;
+  let addEmployees = true;
 
-  while(addAnotherEmployee){
+  while(addEmployees){
     const firstName = prompt("Enter employees first name:")
     const lastName = prompt("Enter employees last name:")
     let salary = prompt("Enter employees salary:")
@@ -22,9 +22,9 @@ const collectEmployees = function() {
 
     employeesArray.push(employee);
 
-    const continueAdding = confirm("Do you want to add another employee?")
-    if (!continueAdding){
-      addAnotherEmployee = false;
+    const Adding = confirm("Do you want to add another employee?")
+    if (!Adding){
+      addEmployees = false;
     }
 }
 return employeesArray;
@@ -34,24 +34,23 @@ return employeesArray;
 const displayAverageSalary = function(employeesArray) {
 // TODO: Calculate and display the average salary
 
-  const totalSalary = employeesArray.reduce((acc, employee) => acc + employee.salary, 0);
-  const averageSalary = totalSalary / employeesArray.length;
+  const total = employeesArray.reduce((acc, employee) => acc + employee.salary, 0);
+  const average = total / employeesArray.length;
 
   console.log(`The average employee salary between our ${employeesArray.length} employee(s) is: 
-    $${(totalSalary / employeesArray.length).toLocaleString(undefined, {maximumFractionDigits: 2})}`);
+$${(total / employeesArray.length).toLocaleString(undefined, {toFixed: 2})}`);
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-  const randomIndex = Math.floor(Math.random() * employeesArray.length);
-  const randomEmployee = employeesArray[randomIndex];
+  const randomE1 = Math.floor(Math.random() * employeesArray.length);
+  const randomEmployee = employeesArray[randomE1];
 
   console.log(`Congratulations to ${randomEmployee.firstName} ${randomEmployee.lastName}, our random drawing winner!`);
   
 employeesArray.sort((a, b) => a.lastName.localeCompare(b.lastName));
-return employeesArray;
-  
+return employeesArray; 
 }
 
 
