@@ -36,9 +36,10 @@ const displayAverageSalary = function(employeesArray) {
 
   const total = employeesArray.reduce((acc, employee) => acc + employee.salary, 0);
   const average = total / employeesArray.length;
+// console.log(Math.round(average * 100) / 100).toFixed
 
   console.log(`The average employee salary between our ${employeesArray.length} employee(s) is: 
-$${(total / employeesArray.length).toLocaleString(undefined, {toFixed: 2})}`);
+$${parseFloat((total / employeesArray.length)).toFixed(2)}`);
 }
 
 // Select a random employee
